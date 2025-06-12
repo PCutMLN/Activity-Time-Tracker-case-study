@@ -53,11 +53,12 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 6px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 textarea {
