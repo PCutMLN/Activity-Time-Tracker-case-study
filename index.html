@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DHL Activity Time Tracking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/DHL_Logo.svg" alt="DHL Logo" height="50">
+    </div>
+    <div>Activity Time Tracking</div>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Activity Log</a>
+    <a href="#">Reports</a>
+    <a href="#">Admin</a>
+    <a href="#">Preferences</a>
+    <a href="#">Log Off</a>
+  </nav>
+
+  <main class="container">
+    <!-- US102: Enter Daily Activity -->
+    <section class="form-section">
+      <h2>Enter Daily Activity</h2>
+      <form id="activity-form">
+        <label for="date">Date <span class="required">*</span></label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="org">Organization <span class="required">*</span></label>
+        <select id="org" name="org" required>
+          <option value="">Select organization</option>
+          <option value="kl">KL SSC</option>
+        </select>
+
+        <label for="dept">Department <span class="required">*</span></label>
+        <select id="dept" name="dept" required>
+          <option value="">Select department</option>
+          <option value="app-support">Application Support</option>
+        </select>
+
+        <label for="activity">Activity <span class="required">*</span></label>
+        <input type="text" id="activity" name="activity" placeholder="e.g. Ticket resolution" required />
+
+        <label for="entity">Entity</label>
+        <input type="text" id="entity" name="entity" placeholder="BLANK - BLANK" />
+
+        <label for="duration">Duration (Hours : Minutes)</label>
+        <div class="flex-row">
+          <input type="number" id="hours" name="hours" min="0" max="24" value="0" required /> :
+          <input type="number" id="minutes" name="minutes" min="0" max="59" value="0" required />
+        </div>
+
+        <label for="tickets">Number of Tickets</label>
+        <input type="number" id="tickets" name="tickets" min="0" />
+
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" placeholder="Additional remarks..."></textarea>
+
+        <button type="submit" class="btn">Submit Activity</button>
+        <p id="form-message" class="success-message" hidden>Activity submitted successfully!</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    DHL – UTM Case Study Workshop 2025 | April 2025
+  </footer>
+
+  <script>
+    // Simple feedback after form submission
+    document.getElementById('activity-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('form-message').hidden = false;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
